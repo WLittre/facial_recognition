@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "facial_recognition"
+version = "0.1.0"
+description = "Maybe my first Jarvis AI?"
+authors = [{name = "Wlittre"}]
+requires-python = ">=3.13.14"
+dependencies = ["opencv-python"]
+
+[project.urls]
+homepage = "https://github.com/WLittre"
+repository = "https://github.com/WLittre/facial_recognition"
+
+[tool.hatch.build.targets.wheel]
+      packages = ["src/face_recognition_app"]
