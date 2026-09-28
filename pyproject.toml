@@ -11,6 +11,10 @@ authors = [{name = "Wlittre"}]
 requires-python = ">=3.13.14"
 dependencies = ["opencv-python"]
 
+[project.optional-dependencies]
+pro = []
+dev = ["pytest"]
+
 [project.urls]
 homepage = "https://github.com/WLittre"
 repository = "https://github.com/WLittre/facial_recognition"
