@@ -1,22 +1,19 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(frozen=True)
 class BoundingBox:
-    def __init__(self, x:int, y:int, width:int, height:int):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+    x: int
+    y: int
+    width: int
+    height: int
 
     def __post_init__(self) -> None:
         if self.x < 0 :
-            raise ValueError("x ne doit être négatifs")
-        elif self.y < 0:
-            raise ValueError("y ne doit être négatifs")
-        elif self.width < 0:
-            raise ValueError("la profondeur ne doit être négatifs")
-        elif self.height < 0:
-            raise ValueError("la hauteur ne doit être négatifs")
-        else :
-            print("x="+self.x+"y="+self.y+"width="+self.width+"height="+self.height)
+            raise ValueError(f"x ({self.x}) ne doit pas être négatif")
+        if self.y < 0:
+            raise ValueError(f"y ({self.y}) ne doit pas être négatif")
+        if self.width <= 0:
+            raise ValueError(f"la largeur ({self.width}) ne doit être négatif")
+        if self.height <= 0:
+            raise ValueError(f"la hauteur({self.height})  ne doit être négatif")
