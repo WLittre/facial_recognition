@@ -28,16 +28,13 @@ def test_bounding_box_negate():
         BoundingBox(x=-1,y=-1,width=-1,height=-1)   
     
 def test_bounding_box_valid():
-    Box = BoundingBox(x=20,y=20,width=50,height=50)
-    assert Box.x == 20
-    assert Box.y == 20  
-    assert Box.width == 50  
-    assert Box.height == 50 
-           
+    box = BoundingBox(x=20,y=20,width=50,height=50)
+    assert box.x == 20
+    assert box.y == 20  
+    assert box.width == 50  
+    assert box.height == 50 
+
 def test_bounding_box_immutabe():
-    Box = BoundingBox(x=20,y=20,width=50,height=50)
+    box = BoundingBox(x=20,y=20,width=50,height=50)
     with pytest.raises(FrozenInstanceError):
-        Box.x = 10
-
-    
-
+        box.x = 10
